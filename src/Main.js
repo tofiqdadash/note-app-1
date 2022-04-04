@@ -1,5 +1,6 @@
 import React from 'react';
 
+
  function Main({activeNote , handleUpdateNote}) {
 
   const onEditField = (field , value) => {
@@ -32,10 +33,6 @@ import React from 'react';
        />
         </div>
 
-        <div className='main-note-preview'>
-        <h2 className='preview-title'>{activeNote.title}</h2>
-        <p className='preview-body'>{activeNote.body}</p>
-        </div>
     </main>
   )
 }

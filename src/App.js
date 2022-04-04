@@ -1,6 +1,7 @@
 import React , {useState} from 'react';
 import Sidebar from './Sidebar';
 import Main from './Main';
+import Search from "./Search";
 
 function App() {
   
@@ -13,8 +14,8 @@ const [activeNote , setActiveNote] = useState(false);
 const handleAddNote = () => {
   const newNote = {
     id: Math.floor(Math.random()*1000),
-    title: "Untitled Note",
-    body: "",
+    title: "title",
+    body: "note",
     lastModified: Date.now(),
   };
 
@@ -27,6 +28,7 @@ const handleAddNote = () => {
 const handleDeleteNote = (noteId) => {
     setNotes(notes.filter(({ id }) => id !== noteId));
 }
+
 
 //get active note(function)
 const getActiveNote = () => {
@@ -56,7 +58,9 @@ const handleUpdateNote = (updatedNote) => {
     setActiveNote={setActiveNote}
     />
     <Main activeNote = {getActiveNote()} handleUpdateNote={handleUpdateNote}/>
+   <Search notes={notes} />
     </div>
+
   );
 }
 
