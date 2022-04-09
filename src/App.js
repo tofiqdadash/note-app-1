@@ -2,6 +2,7 @@ import React , {useState} from 'react';
 import Sidebar from './Sidebar';
 import Main from './Main';
 import Search from "./Search";
+import StarredNotes from './StarredNotes';
 
 function App() {
   
@@ -17,6 +18,7 @@ const handleAddNote = () => {
     title: "title",
     body: "note",
     lastModified: Date.now(),
+    starred: false,
   };
 
   setNotes([newNote , ...notes]);
@@ -58,7 +60,12 @@ const handleUpdateNote = (updatedNote) => {
     setActiveNote={setActiveNote}
     />
     <Main activeNote = {getActiveNote()} handleUpdateNote={handleUpdateNote}/>
+   
+   <div className='right-side'>
    <Search notes={notes} />
+    <StarredNotes />
+    </div>
+   
     </div>
 
   );

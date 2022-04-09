@@ -54,6 +54,7 @@ body{
 }
 
 .sidebar-note{
+  position: relative;
   padding: 2rem 1.5rem;
   margin-bottom: 2rem;
   border-radius: 20px;
@@ -72,6 +73,22 @@ body{
   font-weight: 600;
   color:red;
   cursor:pointer;
+}
+
+.fav-note-btn{
+  width: 33px;
+  height: 30px;
+  position: absolute;
+  bottom:2rem;
+  right: 2rem;
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background-color: rgba(136, 117, 117, 0.568);
+  cursor: pointer;
+}
+
+.fav-note-btn.clicked{
+  background-color: rgb(238, 238, 24);
 }
 
 .active{
@@ -96,7 +113,6 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   }
 
 .main-note-edit{
@@ -136,6 +152,9 @@ border-radius: 20px;
   display:flex;
   flex-direction: column;
   margin-right: 2rem;
+  height: 50vh;
+  overflow-y :scroll;
+  position: relative;
 }
 
 .search-header{
@@ -144,6 +163,11 @@ border-radius: 20px;
   position: relative;
   display: flex;
   padding-left: 3rem;
+  position: sticky;
+  top:0;
+  right:0;
+  padding: 1rem 2rem;
+  background-color: #fff;
 }
 
 .search-input{
@@ -175,3 +199,16 @@ border-radius: 20px;
   border-radius: 10px;
   margin-top: 15px;
 }
+
+
+/*Starred notes*/
+.StarredNotes{
+  background-color: aqua;
+  height: 50%;
+}
+
+.StarredNotes h3{
+  text-align: center;
+  padding-top: 1rem;
+}
+

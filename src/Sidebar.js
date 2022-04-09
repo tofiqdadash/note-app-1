@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
  function Sidebar({
@@ -8,6 +8,13 @@ import React from 'react';
     activeNote , 
     setActiveNote,
   }) {
+
+    const [btnClass , setBtnClass] = useState(false);
+
+    //sort notes by last modified time
+   const sortedNotes = notes.sort((a,b) => b.lastModified - a.lastModified)
+  
+
   return (
     <article className='Sidebar'>
         <div className="sidebar-header">
@@ -17,7 +24,8 @@ import React from 'react';
 
         <div className='sidebar-notes'>
          
-            {notes.map(({id, title,body, lastModified} , i) => (
+         {/* map through notes */}
+            {sortedNotes.map(({id, title,body, lastModified} , i) => (
                 <div 
                 className={`sidebar-note ${id === activeNote && 'active'}`}
                 key={id} onClick={() => setActiveNote(id)}>
@@ -27,6 +35,13 @@ import React from 'react';
                  {/* delete button */}
                 <button className='delete-btn' onClick={(e) => handleDeleteNote(id)} >Delete</button>
                 </div>
+
+                <button 
+                 onClick={(e) => {
+                  btnClass  ? setBtnClass(false) : setBtnClass(true);
+                }}
+                className={btnClass ? "fav-note-btn clicked" : "fav-note-btn"}
+                ></button>
 
                 <p>
                 {/* some limitations on body side */}
